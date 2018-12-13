@@ -27,7 +27,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * The result can have three states, succeeded, cancelled or failed whereas
  * failed means that the execution is potentially retried.
  *
- * @since 1.1
+ * @since 1.1 of org.apache.sling.event
  */
 @ProviderType
 public interface JobExecutionResult {

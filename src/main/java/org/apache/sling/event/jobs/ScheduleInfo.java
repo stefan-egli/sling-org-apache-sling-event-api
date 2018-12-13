@@ -24,7 +24,7 @@ import org.osgi.annotation.versioning.ProviderType;
 
 /**
  * Scheduling information.
- * @since 1.3
+ * @since 1.3 of org.apache.sling.event
  */
 @ProviderType
 public interface ScheduleInfo {

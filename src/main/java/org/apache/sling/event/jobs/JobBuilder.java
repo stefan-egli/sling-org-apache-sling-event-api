@@ -28,7 +28,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * This is a builder interface to build jobs and scheduled jobs.
  * Instances of this class can be retrieved using {@link JobManager#createJob(String)}
  *
- * @since 1.3
+ * @since 1.3 of org.apache.sling.event
  */
 @ProviderType
 public interface JobBuilder {

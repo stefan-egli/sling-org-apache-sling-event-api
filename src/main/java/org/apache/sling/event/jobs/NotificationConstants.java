@@ -26,7 +26,7 @@ package org.apache.sling.event.jobs;
  * action is taking place. They are not send to other instances using
  * remove events.
  *
- * @since 1.3
+ * @since 1.3 of org.apache.sling.event
  */
 public abstract class NotificationConstants {
 

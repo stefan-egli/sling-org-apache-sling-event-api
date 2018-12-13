@@ -42,7 +42,7 @@ import org.osgi.annotation.versioning.ProviderType;
  * Therefore if you are dealing with numbers, use the {@link #getProperty(String, Class)}
  * method to get the correct type instead of directly casting it.
  *
- * @since 1.2
+ * @since 1.2 of org.apache.sling.event
  */
 @ProviderType
 public interface Job {

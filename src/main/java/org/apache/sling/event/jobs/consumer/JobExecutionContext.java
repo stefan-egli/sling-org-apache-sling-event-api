@@ -22,7 +22,7 @@ import org.osgi.annotation.versioning.ProviderType;
 
 /**
  *
- * @since 1.1
+ * @since 1.1 of org.apache.sling.event
  */
 @ProviderType
 public interface JobExecutionContext {

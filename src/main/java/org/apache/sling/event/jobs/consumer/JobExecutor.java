@@ -63,7 +63,7 @@ import org.osgi.annotation.versioning.ConsumerType;
  * of the executor) dies, the job processing will mark this processing as failed and
  * reschedule.
  *
- * @since 1.1
+ * @since 1.1 of org.apache.sling.event
  */
 @ConsumerType
 public interface JobExecutor {

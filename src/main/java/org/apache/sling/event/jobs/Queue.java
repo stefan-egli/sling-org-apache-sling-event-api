@@ -23,7 +23,7 @@ import org.osgi.annotation.versioning.ProviderType;
 
 /**
  * This is a job queue processing job events.
- * @since 3.0
+ * @since 3.0 of org.apache.sling.event
  */
 @ProviderType
 public interface Queue {

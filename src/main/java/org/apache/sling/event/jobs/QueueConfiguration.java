@@ -23,7 +23,7 @@ import org.osgi.annotation.versioning.ProviderType;
 
 /**
  * The configuration of a queue.
- * @since 3.0
+ * @since 3.0 of org.apache.sling.event
  */
 @ProviderType
 public interface QueueConfiguration {
