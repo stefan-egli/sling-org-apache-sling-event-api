@@ -108,4 +108,18 @@ public interface QueueConfiguration {
      * @since 1.4
      */
     boolean isPreferRunOnCreationInstance();
+
+    /**
+     * Whether job queries are enabled (default) on this queue or not.
+     * <p/>
+     * If job queries are disabled the following consequences result:
+     * <ul>
+     * <li>getJobById: returns null</li>
+     * <li>getJob: returns null</li>
+     * <li>findJobs: returns an empty collection</li>
+     * <li>retryJobById: returns null as it implies a getJobById</li>
+     * </ul>
+     * @since 2.1
+     */
+    boolean jobQueriesEnabled();
 }

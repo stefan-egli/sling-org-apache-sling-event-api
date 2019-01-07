@@ -111,8 +111,11 @@ public interface JobManager {
      * The returned job object is a snapshot of the job state taken at the time of the call. Updates
      * to the job state are not reflected and the client needs to get a new job object using the job id.
      *
+     * Returns null if job queries are disabled for the underlying queue.
+     *
      * @param jobId The unique identifier from {@link Job#getId()}
-     * @return A job or <code>null</code>
+     * @return A job or <code>null</code> (is always null if job queries are disabled for the underlying queue)
+     * @see QueueConfiguration#jobQueriesEnabled
      * @since 1.2
      */
     Job getJobById(String jobId);
@@ -140,10 +143,13 @@ public interface JobManager {
      * The returned job object is a snapshot of the job state taken at the time of the call. Updates
      * to the job state are not reflected and the client needs to get a new job object using the job id.
      *
+     * Returns null if job queries are disabled for the underlying queue.
+     *
      * @param topic Topic is required.
      * @param template The map acts like a template. The searched job
      *                    must match the template (AND query).
-     * @return A job or <code>null</code>
+     * @return A job or <code>null</code> (is always null if job queries are disabled for the underlying queue)
+     * @see QueueConfiguration#jobQueriesEnabled
      * @since 1.2
      */
     Job getJob(String topic, Map<String, Object> template);
@@ -161,6 +167,8 @@ public interface JobManager {
      * The returned job objects are a snapshot of the jobs state taken at the time of the call. Updates
      * to the job states are not reflected and the client needs to get new job objects.
      *
+     * The returned collection is always empty if job queries are disabled for the underlying queue.
+     *
      * @param type Required parameter for the type. See above.
      * @param topic Topic can be used as a filter, if it is non-null, only jobs with this topic will be returned.
      * @param limit A positive number indicating the maximum number of jobs returned by the iterator. A value
@@ -168,7 +176,9 @@ public interface JobManager {
      * @param templates A list of filter property maps. Each map acts like a template. The searched job
      *                    must match the template (AND query). By providing several maps, different filters
      *                    are possible (OR query).
-     * @return A collection of jobs - the collection might be empty.
+     * @return A collection of jobs - the collection might be empty. The collection is always empty if
+     * job queries are disabled for the underlying queue
+     * @see QueueConfiguration#jobQueriesEnabled
      * @since 1.2
      */
     Collection<Job> findJobs(QueryType type, String topic, long limit, Map<String, Object>... templates);
@@ -188,8 +198,13 @@ public interface JobManager {
      * If a job has failed permanently it can be requeued with this method. The job will be
      * removed from the history and put into the queue again. The new job will get a new job id.
      * For all other jobs calling this method has no effect and it simply returns <code>null</code>.
+     *
+     * If job queries (and thus job history) are disabled for the underlying queue this method
+     * has no effect and simply returns <code>null</code>.
      * @param jobId The job id.
      * @return If the job is requeued, the new job object otherwise <code>null</code>
+     * (is always null if job queries are disabled for the underlying queue)
+     * @see QueueConfiguration#jobQueriesEnabled
      */
     Job retryJobById(String jobId);
 
